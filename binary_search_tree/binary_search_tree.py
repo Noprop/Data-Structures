@@ -36,12 +36,17 @@ class BSTNode:
     def contains(self, target):
         if self.value == target:
             return True
-        elif self.left and self.left.contains(target):
-            return True
-        elif self.right and self.right.contains(target):
-            return True
-        else:
-            return False
+        # Which direction are we going to move?
+        if target > self.value:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
+        if target < self.value:
+            if self.left is None:
+                return False
+            else:
+                return self.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -62,16 +67,34 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        if node.left:
+            node.in_order_print(node.left)
+        print(node.value)
+        if node.right:
+            node.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+
     def bft_print(self, node):
+        # use a queue
+        # start queue with root node
+
+        # while loop that checks
+        # size of queue
+        # pointer variable
+        # that updates
+
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
+        # use a stack
+        # start your stack with the root node
+
+        # while loop that checks stack size
+        # pointer
         pass
 
     # Stretch Goals -------------------------
